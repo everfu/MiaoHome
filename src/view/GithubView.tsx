@@ -15,7 +15,7 @@ export default function GithubView() {
     request.get(`https://api.github.com/users/${GithubUsername}/repos?sort=updated`)
       .then((res: GithubCardProps[]) => {
         const filteredRepos = res.filter(repo => repo.name !== GithubUsername);
-        setRepos(res)
+        setRepos(filteredRepos)
       }).catch((err) => {
         setError(err)
       })
